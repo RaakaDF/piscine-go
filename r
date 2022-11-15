@@ -1,2 +1,1 @@
-echo R
-echo '\n'
+R
