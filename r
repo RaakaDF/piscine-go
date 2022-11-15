@@ -1,1 +1,2 @@
-echo "R"
+echo R
+echo '\n'
