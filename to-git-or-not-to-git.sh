@@ -1,3 +1,4 @@
- #! /bin/bash
+ #! /bim/bash
 
  id "7719"
+ 
