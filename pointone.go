@@ -1,10 +1,5 @@
-package main
+package piscine
 
-import (
-	"piscine"
-)
-
-func main() {
-	n := 0
-	piscine.PointOne(&n)
+func PointOne(n *int) {
+	*n = 1
 }
