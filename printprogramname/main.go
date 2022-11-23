@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	x := os.Args
-	for index, y := range x[0] {
+	x := os.Args[0]
+	for index, y := range x {
 		if index >= 0 && y != '/' && y != '.' {
 			i := y
 			z01.PrintRune(i)
