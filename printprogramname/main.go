@@ -8,9 +8,9 @@ import (
 
 func main() {
 	x := os.Args[0]
-	for index, y := range x {
-		if index >= 0 && y != '/' && y != '.' {
-			i := y
+	for index, word := range x {
+		if index >= 0 && word != '/' && word != '.' {
+			i := word
 			z01.PrintRune(i)
 		}
 	}
