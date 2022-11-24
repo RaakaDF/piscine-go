@@ -35,5 +35,5 @@ func SplitWhiteSpaces(n string) []string {
 }
 
 func isSeparator(r rune) bool {
-	return r == ' ' || r == '\n' || r == '\t'
+	return r == ' ' || r == '\t' || r == '\n'
 }
