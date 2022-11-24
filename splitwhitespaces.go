@@ -1,25 +1,25 @@
 package piscine
 
-func SplitWhiteSpaces(str string) []string {
-	var arrayString []string
-	countWords := 1
-	lenStr := 0
+func SplitWhiteSpaces(n string) []string {
+	var s []string
+	x := 1
+	re := 0
 	result := ""
-	for c := range str {
-		if isWhiteSpace(str[c]) {
-			countWords++
+	for c := range n {
+		if isWhiteSpace(n[c]) {
+			x++
 		}
-		lenStr++
+		re++
 	}
-	arrayString = make([]string, countWords)
+	s = make([]string, x)
 	i := 0
-	for j, c := range str {
-		if j+1 == lenStr {
-			arrayString[i] = result + string(str[j])
+	for j, c := range n {
+		if j+1 == re {
+			s[i] = result + string(n[j])
 		}
-		if isWhiteSpace(str[j]) {
-			if i <= countWords {
-				arrayString[i] = result
+		if isWhiteSpace(n[j]) {
+			if i <= x {
+				s[i] = result
 				i++
 				result = ""
 			}
@@ -27,7 +27,7 @@ func SplitWhiteSpaces(str string) []string {
 			result += string(c)
 		}
 	}
-	return arrayString
+	return s
 }
 
 func isWhiteSpace(r byte) bool {
