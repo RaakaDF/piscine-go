@@ -1,38 +1,39 @@
 package piscine
 
 func SplitWhiteSpaces(n string) []string {
-	var s []string
-	x := 1
+	x := 0
 	re := 0
 	result := ""
-	for c := range n {
-		if isWhiteSpace(n[c]) {
-			x++
+	for index, c := range n {
+		if c == ' ' && n[index+1] != ' ' {
+			re++
 		}
-		re++
 	}
-	s = make([]string, x)
-	i := 0
-	for j, c := range n {
-		if j+1 == re {
-			s[i] = result + string(n[j])
-		}
-		if isWhiteSpace(n[j]) {
-			if i <= x {
-				s[i] = result
-				i++
+	res := make([]string, re+1)
+
+	for _, r := range n {
+		if isSeparator(r) {
+			if result != "" {
+				res[x] = result
+				x++
 				result = ""
+
 			}
 		} else {
-			result += string(c)
+			result += string(r)
 		}
 	}
-	return s
+	size := 0
+	for z := range res {
+		size++
+		z++
+	}
+	if result != "" {
+		res[size-1] = result
+	}
+	return res
 }
 
-func isWhiteSpace(r byte) bool {
-	if r == ' ' || r == '\n' || r == '\t' {
-		return true
-	}
-	return false
+func isSeparator(r rune) bool {
+	return r == ' ' || r == '\n' || r == '\t'
 }
