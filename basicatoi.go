@@ -1,6 +1,4 @@
-
 package piscine
-
 
 func BasicAtoi(s string) int {
 	byteRevStr := []byte(s)
