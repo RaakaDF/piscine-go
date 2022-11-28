@@ -7,6 +7,7 @@ func myStrLen(s string) int {
 	}
 	return length
 }
+
 func Split(str, charset string) []string {
 	strLen := myStrLen(str)
 	charsetLen := myStrLen(charset)
