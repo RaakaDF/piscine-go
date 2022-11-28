@@ -4,68 +4,41 @@ import (
 	"github.com/01-edu/z01"
 )
 
-const size = 8
-
-var board [size][size]bool
-
-func goodDirection(x, y, vx, vy int) bool {
-	for 0 <= x && x < size &&
-		0 <= y && y < size {
-		if board[x][y] {
-			return false
-		}
-		x = x + vx
-		y = y + vy
+func PrintSolution(result [8]int) {
+	for _, val := range result {
+		z01.PrintRune(rune(val) + 48)
 	}
-
-	return true
+	z01.PrintRune(10)
 }
 
-func goodSquare(x, y int) bool {
-	return goodDirection(x, y, +0, -1) &&
-		goodDirection(x, y, +1, -1) &&
-		goodDirection(x, y, +1, +0) &&
-		goodDirection(x, y, +1, +1) &&
-		goodDirection(x, y, +0, +1) &&
-		goodDirection(x, y, -1, +1) &&
-		goodDirection(x, y, -1, +0) &&
-		goodDirection(x, y, -1, -1)
-}
-
-func printQueens() {
-	x := 0
-	for x < size {
-		y := 0
-		for y < size {
-			if board[x][y] {
-				z01.PrintRune(rune(y) + '1')
-			}
-			y++
-		}
-		x++
+func PlaceQueen(horiz [8]bool, fDiag [15]bool, bDiag [15]bool, result [8]int, col int) {
+	if col == 8 {
+		return
 	}
-	z01.PrintRune('\n')
-}
-
-func tryX(x int) {
-	y := 0
-	for y < size {
-		if goodSquare(x, y) {
-
-			board[x][y] = true
-
-			if x == size-1 {
-				printQueens()
-			} else {
-				tryX(x + 1)
-			}
-
-			board[x][y] = false
+	for row := 0; row <= 7; row++ {
+		if horiz[row] || bDiag[row+col] || fDiag[7-row+col] {
+			continue
 		}
-		y++
+		horizTmp := horiz
+		fDiagTmp := fDiag
+		bDiagTmp := bDiag
+		resulTmp := result
+		horizTmp[row] = true
+		fDiagTmp[7-row+col] = true
+		bDiagTmp[row+col] = true
+		resulTmp[col] = row + 1
+		if col == 7 {
+			PrintSolution(resulTmp)
+			return
+		}
+		PlaceQueen(horizTmp, fDiagTmp, bDiagTmp, resulTmp, col+1)
 	}
 }
 
 func EightQueens() {
-	tryX(0)
+	var horiz [8]bool
+	var fDiag [15]bool
+	var bDiag [15]bool
+	var table [8]int
+	PlaceQueen(horiz, fDiag, bDiag, table, 0)
 }
