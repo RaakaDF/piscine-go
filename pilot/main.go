@@ -3,10 +3,11 @@ package main
 import "fmt"
 
 type Pilot struct {
-    Name string
-    Life int
-    Age int
-    Aircraft int
+	
+	Name     string
+	Life     int
+	Age      int
+	Aircraft int
 }
 
 func main() {
@@ -15,7 +16,6 @@ func main() {
 	donnie.Life = 100.0
 	donnie.Age = 24
 	donnie.Aircraft = AIRCRAFT1
-
 	fmt.Println(donnie)
 }
 
