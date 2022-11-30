@@ -1,16 +1,21 @@
 package main
 
-import (
-	"fmt"
+import(
 	"os"
+	"fmt"
 )
 
-func main() {
-	x := os.Args[1:]
-	for _, v := range x {
-		if x == "01" || x == "galaxy" || x == "galaxy 01" {
-			fmt.Println("Alert!!!")
-			return
+func main(){
+	result := ""
+	args := os.Args[1:]
+	check := []string{"01", "galaxy", "galaxy 01"}
+	for _, res:= range args {
+		for _,item := range check {
+			if res == item {
+				result += "Alert!!!\n"
+				break
+			}
 		}
 	}
+	fmt.Print(result)
 }
