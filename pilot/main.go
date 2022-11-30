@@ -8,6 +8,7 @@ func Pilot struct {
     Age int
     Aircraft int
 }
+
 func main() {
 	var donnie Pilot
 	donnie.Name = "Donnie"
