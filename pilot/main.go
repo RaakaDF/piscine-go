@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 type Pilot struct {
-	
 	Name     string
 	Life     int
 	Age      int
