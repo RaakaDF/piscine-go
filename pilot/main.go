@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func Pilot struct {
+type Pilot struct {
     Name string
     Life int
     Age int
