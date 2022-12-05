@@ -22,4 +22,3 @@ func ListPushFront(l *List, data interface{}) {
 	newNode.Next = l.Head
 	l.Head = newNode
 }
-Footer
