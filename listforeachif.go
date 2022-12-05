@@ -1,12 +1,12 @@
 package piscine
 
 func ListForEachIf(l *List, f func(*NodeL), cond func(*NodeL) bool) {
-	num := l.Head
-	for num != nil {
-		if cond(num) {
-			f(num)
+	n := l.Head
+	for n != nil {
+		if cond(n) {
+			f(n)
 		}
-		num = num.Next
+		n = n.Next
 	}
 }
 
@@ -30,12 +30,11 @@ func IsNegative_node(node *NodeL) bool {
 	return false
 }
 
-func IsNotNumeric_node(node *NodeL) bool {
+func IsAlNode(node *NodeL) bool {
 	switch node.Data.(type) {
 	case int, float32, float64, byte:
 		return false
-	case string, rune:
+	default:
 		return true
 	}
-	return true
 }
