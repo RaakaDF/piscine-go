@@ -1,5 +1,15 @@
 package piscine
 
+type NodeL struct {
+	Data interface{}
+	Next *NodeL
+}
+
+type List struct {
+	Head *NodeL
+	Tail *NodeL
+}
+
 // ListPushFront function inserts a new element NodeL
 // at the beginning of the list l while using the structure List.
 func ListPushFront(l *List, data interface{}) {
