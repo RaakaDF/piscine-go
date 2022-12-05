@@ -1,11 +1,12 @@
-package piscine 
+package piscine
 
+// ListSize function returns the number
+// of elements in a linked list l.
 func ListSize(l *List) int {
-	it := l.Head
 	i := 0
-	for it != nil {
+	for l.Head != nil {
 		i++
-		it = it.Next
+		l.Head = l.Head.Next
 	}
 	return i
 }
