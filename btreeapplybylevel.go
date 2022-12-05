@@ -16,5 +16,4 @@ func AtLevel(root *TreeNode, i int, f func(...interface{}) (int, error)) {
 		AtLevel(root.Left, i-1, f)
 		AtLevel(root.Right, i-1, f)
 	}
-
 }
