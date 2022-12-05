@@ -1,7 +1,7 @@
 package piscine
 
 func ListForEachIf(l *List, f func(*NodeL), cond func(*NodeL) bool) {
-    num := l.Head
+      num := l.Head
 	for num != nil {
 		if cond(num) {
 			f(num)
