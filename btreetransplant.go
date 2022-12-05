@@ -13,4 +13,3 @@ func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
 	}
 	return root
 }
-
