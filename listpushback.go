@@ -1,26 +1,20 @@
 package piscine
 
-// NodeL type
 type NodeL struct {
 	Data interface{}
 	Next *NodeL
 }
 
-// List type
 type List struct {
 	Head *NodeL
 	Tail *NodeL
 }
 
-// ListPushBack function inserts a new element NodeL
-// at the end of the list l while using the structure List.
-func ListPushBack(l *List, data interface{}) {
-	newNode := &NodeL{Data: data}
+func ListPushFront(l *List, data interface{}) {
 	if l.Head == nil {
-		l.Head = newNode
-		l.Tail = newNode
-		return
+		l.Head, l.Tail = &NodeL{Data:data}, l.Head
+	}else{
+		newNode := &NodeL{Data: data}
+		newNode.Next,l.Head = l.Head, newNode
 	}
-	l.Tail.Next = newNode
-	l.Tail = newNode
 }
